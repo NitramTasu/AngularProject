@@ -1,8 +1,11 @@
 <div>
-    <ul>
-      <li *ngFor='let item of results'>
-        {{item.id}}
-        {{item.name}}
-      </li>
-    </ul>
+  <a routerLink="user" routerLinkActive="active">Novo</a>
+  <ul>
+    <li *ngFor="let item of results">
+      {{ item.name }}| {{ item.email }}| {{ item.age }}|{{ item.phone }} |
+      <a routerLink="user/{{ item.id }}" routerLinkActive="active"
+        >Ver Perfil</a
+      >
+    </li>
+  </ul>
 </div>

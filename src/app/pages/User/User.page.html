@@ -1,6 +1,40 @@
 <div>
-  <loading-component [show]="loading" ></loading-component>
+  <loading-component [show]="loading"></loading-component>
+
+  <form [formGroup]="userForm" (ngSubmit)="onSubmit()">
+    <div>Nome:</div>
+    <div><input type="text" name="name" formControlName="name" /></div>
+    <div>Idade:</div>
+    <div><input type="number" name="age" formControlName="age" /></div>
+    <div>Email:</div>
+    <div><input type="email" name="email" formControlName="email" /></div>
+    <div
+      *ngIf="userForm.controls.name.invalid && userForm.controls.name.touched"
+    >
+      O campo nome é obrigatório
+    </div>
+    <div *ngIf="userForm.controls.age.invalid && userForm.controls.age.touched">
+      O campo idate é obrigatório
+    </div>
+    <div
+      *ngIf="userForm.controls.email.invalid && userForm.controls.email.touched"
+    >
+      O campo email é obrigatório
+    </div>
+
+    <button type="submit" [disabled]="!userForm.valid">
+      <ng-container *ngIf="userId; then lbUpdate; else lbCreate">
+      </ng-container>
+      <ng-template #lbUpdate>Atualizar</ng-template>
+      <ng-template #lbCreate>Criar</ng-template>
+    </button>
+  </form>
+
+  <!-- <input type="text" name="name" (change)="setValue($event)" />
+
   <button (click)="createUser()">
     Criar Usuario
   </button>
+
+  {{ data.name }} -->
 </div>

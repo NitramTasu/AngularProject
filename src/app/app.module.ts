@@ -1,18 +1,18 @@
-import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
-import {HttpClientModule} from '@angular/common/http'
+import { BrowserModule } from "@angular/platform-browser";
+import { NgModule } from "@angular/core";
+import { HttpClientModule } from "@angular/common/http";
+import { ReactiveFormsModule } from "@angular/forms";
 
+import { AngularFireModule } from "@angular/fire";
+import { AngularFirestoreModule } from "@angular/fire/firestore";
 
-import { AngularFireModule } from '@angular/fire';
-import { AngularFirestoreModule } from '@angular/fire/firestore';
-
-import { environment } from '../environments/environment';
-import { AppRoutingModule } from './app-routing.module';
-import { AppComponent } from './app.component';
-import { HeaderComponent } from './components/Header/Header.component';
-import {UserListPage} from './pages/UserList/UserList.page';
-import {UserComponent} from './pages/User/User.page';
-import {LoadingComponent} from './components/Loading/Loading.component';
+import { environment } from "../environments/environment";
+import { AppRoutingModule } from "./app-routing.module";
+import { AppComponent } from "./app.component";
+import { HeaderComponent } from "./components/Header/Header.component";
+import { UserListPage } from "./pages/UserList/UserList.page";
+import { UserComponent } from "./pages/User/User.page";
+import { LoadingComponent } from "./components/Loading/Loading.component";
 
 @NgModule({
   declarations: [
@@ -21,7 +21,6 @@ import {LoadingComponent} from './components/Loading/Loading.component';
     UserListPage,
     UserComponent,
     LoadingComponent
-
   ],
   imports: [
     AngularFireModule.initializeApp(environment.firebase),
@@ -29,8 +28,9 @@ import {LoadingComponent} from './components/Loading/Loading.component';
     BrowserModule,
     HttpClientModule,
     AppRoutingModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {}
