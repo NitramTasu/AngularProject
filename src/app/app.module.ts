@@ -12,6 +12,7 @@ import { AppComponent } from "./app.component";
 import { HeaderComponent } from "./components/Header/Header.component";
 import { UserListPage } from "./pages/UserList/UserList.page";
 import { UserComponent } from "./pages/User/User.page";
+import { NgbModule } from "@ng-bootstrap/ng-bootstrap";
 import { LoadingComponent } from "./components/Loading/Loading.component";
 
 @NgModule({
@@ -28,7 +29,8 @@ import { LoadingComponent } from "./components/Loading/Loading.component";
     BrowserModule,
     HttpClientModule,
     AppRoutingModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    NgbModule
   ],
   providers: [],
   bootstrap: [AppComponent]

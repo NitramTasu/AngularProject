@@ -1,5 +1,5 @@
 import { NgModule } from "@angular/core";
-import { Routes, RouterModule, RouteParams } from "@angular/router";
+import { Routes, RouterModule } from "@angular/router";
 
 import { UserListPage } from "./pages/UserList/UserList.page";
 import { UserComponent } from "./pages/User/User.page";

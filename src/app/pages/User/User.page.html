@@ -2,8 +2,11 @@
   <loading-component [show]="loading"></loading-component>
 
   <form [formGroup]="userForm" (ngSubmit)="onSubmit()">
-    <div>Nome:</div>
+    <button mdbBtn type="button" color="primary" mdbWavesEffect>Primary</button>
+    <div>Nome Completo:</div>
     <div><input type="text" name="name" formControlName="name" /></div>
+    <div>CPF:</div>
+    <div><input type="text" name="name" formControlName="cpf" /></div>
     <div>Idade:</div>
     <div><input type="number" name="age" formControlName="age" /></div>
     <div>Email:</div>
@@ -12,6 +15,9 @@
       *ngIf="userForm.controls.name.invalid && userForm.controls.name.touched"
     >
       O campo nome é obrigatório
+    </div>
+    <div *ngIf="userForm.controls.cpf.invalid && userForm.controls.cpf.touched">
+      O campo cpf é obrigatório
     </div>
     <div *ngIf="userForm.controls.age.invalid && userForm.controls.age.touched">
       O campo idate é obrigatório

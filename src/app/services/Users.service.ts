@@ -32,6 +32,18 @@ export class UsersService {
       .doc(key)
       .set(data);
   }
+  deleteByKey(key) {
+    return this.db
+      .collection("users")
+      .doc(key)
+      .delete()
+      .then(() => {
+        console.log("Foi deletado com sucesso");
+      })
+      .catch(err => {
+        console.log("Deu ruim:", err);
+      });
+  }
 
   getAllUsers() {
     return this.db.collection("users").snapshotChanges();

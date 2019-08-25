@@ -18,7 +18,8 @@ export class UserComponent {
   userForm = new FormGroup({
     name: new FormControl("", Validators.required),
     email: new FormControl("", Validators.required),
-    age: new FormControl("", Validators.required)
+    age: new FormControl("", Validators.required),
+    cpf: new FormControl("", Validators.required)
   });
 
   constructor(
@@ -55,6 +56,7 @@ export class UserComponent {
       [target.name]: target.value
     };
   }
+ 
 
   onSubmit() {
     this.userId = this.route.snapshot.paramMap.get("id");
@@ -65,10 +67,7 @@ export class UserComponent {
         ...this.userForm.value,
         id: this.userId
       };
-      this.usersService
-        .updateByKey(this.userKey, data)
-        .then(this.router.navigate(["/"]))
-        .catch(err => console.log("Update error:", err));
+      this.usersService.updateByKey(this.userKey, data);
     } else {
       this.createService();
     }

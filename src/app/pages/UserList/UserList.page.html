@@ -2,10 +2,13 @@
   <a routerLink="user" routerLinkActive="active">Novo</a>
   <ul>
     <li *ngFor="let item of results">
-      {{ item.name }}| {{ item.email }}| {{ item.age }}|{{ item.phone }} |
-      <a routerLink="user/{{ item.id }}" routerLinkActive="active"
-        >Ver Perfil</a
-      >
+      Nome Completo: {{ item.name }}<br />| CPF: {{ item.cpf }}<br />| E-mail:
+      {{ item.email }}<br />| Idade: {{ item.age }}<br />|Telefone:
+      {{ item.phone }}<br />
+      |
+      <a routerLink="user/{{ item.id }}" routerLinkActive="active">Ver Perfil</a
+      ><br />
+      <button (click)="delete(item.id)">Delete</button>
     </li>
   </ul>
 </div>

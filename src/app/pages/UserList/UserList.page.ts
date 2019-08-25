@@ -1,5 +1,5 @@
 import { Component } from "@angular/core";
-import { UsersService } from   "../../services/Users.service";
+import { UsersService } from "../../services/Users.service";
 
 @Component({
   selector: "user-list",
@@ -18,5 +18,12 @@ export class UserListPage {
         this.results.push(item.payload.doc.data());
       })
     );
+  }
+  delete(id: string) {
+    console.log("chamou id", id);
+    this.usersService.getById(id).subscribe((data: any) => {
+      const userKey = data[0].payload.doc.id;
+      this.usersService.deleteByKey(userKey);
+    });
   }
 }
