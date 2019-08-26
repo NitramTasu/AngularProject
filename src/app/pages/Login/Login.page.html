@@ -1,0 +1,32 @@
+<div *ngIf="afAuth.user | async as user; else showLogin">
+  <h1>Hello {{ user.displayName }}!</h1>
+  <button (click)="logout()">Logout</button>
+</div>
+<ng-template #showLogin>
+  <p>Please login.</p>
+  <form [formGroup]="loginForm" (ngSubmit)="login()">
+    <div>E-mail:</div>
+    <div><input type="text" name="email" formControlName="email" /></div>
+    <div>Senha:</div>
+    <div><input type="text" name="password" formControlName="password" /></div>
+    <div
+      *ngIf="
+        loginForm.controls.email.invalid && loginForm.controls.email.touched
+      "
+    >
+      O campo email é obrigatório
+    </div>
+    <div
+      *ngIf="
+        loginForm.controls.password.invalid &&
+        loginForm.controls.password.touched
+      "
+    >
+      O campo senha é obrigatório
+    </div>
+
+    <button type="submit" [disabled]="!loginForm.valid">
+      Login
+    </button>
+  </form>
+</ng-template>

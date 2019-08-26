@@ -56,7 +56,6 @@ export class UserComponent {
       [target.name]: target.value
     };
   }
- 
 
   onSubmit() {
     this.userId = this.route.snapshot.paramMap.get("id");
