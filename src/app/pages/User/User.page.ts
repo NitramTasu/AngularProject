@@ -43,7 +43,6 @@ export class UserComponent {
       Object.keys(result)
         .filter(item => item != "id")
         .forEach(item => {
-          console.log(item);
           this.userForm.controls[item].setValue(result[item]);
         });
     });

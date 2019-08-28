@@ -7,6 +7,8 @@ import { AngularFireModule } from "@angular/fire";
 import { AngularFirestoreModule } from "@angular/fire/firestore";
 import { AngularFireAuth } from "@angular/fire/auth";
 
+import {RouterModule, Routes} from '@angular/router';
+
 import { environment } from "../environments/environment";
 import { AppRoutingModule } from "./app-routing.module";
 import { AppComponent } from "./app.component";
@@ -16,6 +18,7 @@ import { UserComponent } from "./pages/User/User.page";
 import { LoginComponent } from "./pages/Login/Login.page";
 import { NgbModule } from "@ng-bootstrap/ng-bootstrap";
 import { LoadingComponent } from "./components/Loading/Loading.component";
+import {NeedAuthGuard} from '../app/auth/auth-guard'
 
 @NgModule({
   declarations: [
@@ -29,13 +32,13 @@ import { LoadingComponent } from "./components/Loading/Loading.component";
   imports: [
     AngularFireModule.initializeApp(environment.firebase),
     AngularFirestoreModule,
+    AppRoutingModule,
     BrowserModule,
     HttpClientModule,
-    AppRoutingModule,
     ReactiveFormsModule,
     NgbModule
   ],
-  providers: [AngularFireAuth],
+  providers: [AngularFireAuth, NeedAuthGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule {}

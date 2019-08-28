@@ -29,12 +29,15 @@ export class AuthService {
     }
   }
   async logout() {
-    await this.afAuth.auth.signOut();
-    localStorage.removeItem("user");
-    this.router.navigate(["admin/login"]);
+    await this.afAuth.auth.signOut().then(()=>{
+      localStorage.removeItem("user");
+      this.router.navigate(["admin/login"]);
+    });
+    
   }
-  get isLoggedIn(): boolean {
+  public isLoggedIn(): boolean {
     const user = JSON.parse(localStorage.getItem("user"));
+    console.log('user', user)
     return user !== null;
   }
 }

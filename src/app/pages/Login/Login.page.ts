@@ -3,6 +3,7 @@ import { AngularFireAuth } from "@angular/fire/auth";
 import { auth } from "firebase/app";
 import { Router } from "@angular/router";
 import { FormGroup, FormControl, Validators } from "@angular/forms";
+import { AuthService } from "../../services/Login.services"
 
 @Component({
   selector: "app-root",
@@ -14,7 +15,7 @@ export class LoginComponent {
     email: new FormControl("", Validators.required),
     password: new FormControl("", Validators.required)
   });
-  constructor(public afAuth: AngularFireAuth, private router: Router) {}
+  constructor(public afAuth: AngularFireAuth, private router: Router, private authService: AuthService) {}
   login() {
     var email = this.loginForm.value.email;
     var senha = this.loginForm.value.password;
@@ -24,13 +25,7 @@ export class LoginComponent {
     });
   }
   logout() {
-    this.afAuth.auth
-      .signOut()
-      .then(() => {
-        console.log("logout com sucesso");
-      })
-      .catch(() => {
-        console.log("Logout deu erro");
-      });
+    this.authService.logout()
+   
   }
 }
