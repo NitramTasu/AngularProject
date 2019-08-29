@@ -19,7 +19,11 @@ export class UserComponent {
     name: new FormControl("", Validators.required),
     email: new FormControl("", Validators.required),
     age: new FormControl("", Validators.required),
-    cpf: new FormControl("", Validators.required)
+    cpf: new FormControl("", Validators.required),
+    zipcode: new FormControl("", Validators.required),
+    street: new FormControl("", Validators.required),
+    housenumber: new FormControl("", Validators.required),
+    complement: new FormControl("", Validators.required),
   });
 
   constructor(
@@ -32,6 +36,7 @@ export class UserComponent {
 
   ngOnInit() {
     this.userId = this.route.snapshot.paramMap.get("id");
+    console.log('teste', this.userId)
 
     if (this.userId) this.getUser(this.userId);
   }

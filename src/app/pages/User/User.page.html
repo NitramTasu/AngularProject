@@ -11,6 +11,14 @@
     <div><input type="number" name="age" formControlName="age" /></div>
     <div>Email:</div>
     <div><input type="email" name="email" formControlName="email" /></div>
+    <div>CEP:</div>
+    <div><input type="text" name="zipcode" formControlName="zipcode" /></div>
+    <div>Rua:</div>
+    <div><input type="text" name="street" formControlName="street" /></div>
+    <div>Numero:</div>
+    <div><input type="text" name="housenumber" formControlName="housenumber" /></div>
+    <div>Complemento:</div>
+    <div><input type="text" name="complement" formControlName="complement" /></div>
     <div
       *ngIf="userForm.controls.name.invalid && userForm.controls.name.touched"
     >
@@ -26,6 +34,26 @@
       *ngIf="userForm.controls.email.invalid && userForm.controls.email.touched"
     >
       O campo email é obrigatório
+    </div>
+    <div
+      *ngIf="userForm.controls.zipcode.invalid && userForm.controls.zipcode.touched"
+    >
+      O campo cep é obrigatório
+    </div>
+    <div
+      *ngIf="userForm.controls.street.invalid && userForm.controls.street.touched"
+    >
+      O campo rua é obrigatório
+    </div>
+    <div
+      *ngIf="userForm.controls.housenumber.invalid && userForm.controls.housenumber.touched"
+    >
+      O campo numero é obrigatório
+    </div>
+    <div
+      *ngIf="userForm.controls.complement.invalid && userForm.controls.complement.touched"
+    >
+      O campo complemento é obrigatório
     </div>
 
     <button type="submit" [disabled]="!userForm.valid">

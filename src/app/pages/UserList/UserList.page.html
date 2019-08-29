@@ -6,6 +6,13 @@
       {{ item.email }}<br />| Idade: {{ item.age }}<br />|Telefone:
       {{ item.phone }}<br />
       |
+      {{ item.zipcode }}<br />
+      |
+      {{ item.street }}<br />
+      |
+      {{ item.housenumber }}<br />
+      |
+      {{ item.complement }}<br />
       <a routerLink="user/{{ item.id }}" routerLinkActive="active">Ver Perfil</a
       ><br />
       <button (click)="delete(item.id)">Delete</button>
