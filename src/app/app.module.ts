@@ -21,7 +21,8 @@ import { NgbModule } from "@ng-bootstrap/ng-bootstrap";
 import {FilterPipe} from './pipes/filter.pipe';
 import {OrderPipe} from './pipes/order.pipe';
 import { LoadingComponent } from "./components/Loading/Loading.component";
-import {NeedAuthGuard} from '../app/auth/auth-guard'
+import {NeedAuthGuard} from '../app/auth/auth-guard';
+import { ServiceWorkerModule } from '@angular/service-worker'
 
 @NgModule({
   declarations: [
@@ -42,7 +43,8 @@ import {NeedAuthGuard} from '../app/auth/auth-guard'
     BrowserModule,
     HttpClientModule,
     ReactiveFormsModule,
-    NgbModule
+    NgbModule,
+    ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production })
   ],
   providers: [AngularFireAuth, NeedAuthGuard],
   bootstrap: [AppComponent]
