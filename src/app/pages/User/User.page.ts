@@ -10,10 +10,10 @@ import { FormGroup, FormControl, Validators } from "@angular/forms";
   styleUrls: ["./User.page.css"]
 })
 export class UserComponent {
-  private userId: string = "";
-  private data: object = {};
-  private loading: boolean = false;
-  private userKey: object = {};
+  userId: string = "";
+  data: object = {};
+  loading: boolean = false;
+  userKey: object = {};
 
   userForm = new FormGroup({
     name: new FormControl("", Validators.required),

@@ -7,9 +7,9 @@ import { UsersService } from "../../services/Users.service";
   styleUrls: ["./UserList.page.css"]
 })
 export class UserListPage {
-  private results = [];
-  private filterBy: string = "";
-  private orderBy: number;
+   results = [];
+   filterBy: string = "";
+   orderBy: number;
 
   constructor(private usersService: UsersService) {}
 
