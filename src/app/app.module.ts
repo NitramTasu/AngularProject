@@ -16,6 +16,7 @@ import { HeaderComponent } from "./components/Header/Header.component";
 import { UserListPage } from "./pages/UserList/UserList.page";
 import { UserComponent } from "./pages/User/User.page";
 import { LoginComponent } from "./pages/Login/Login.page";
+import {PageNotFoundComponent} from './pages/Error/PageNotFound.page'
 import { NgbModule } from "@ng-bootstrap/ng-bootstrap";
 import {FilterPipe} from './pipes/filter.pipe';
 import {OrderPipe} from './pipes/order.pipe';
@@ -29,6 +30,7 @@ import {NeedAuthGuard} from '../app/auth/auth-guard'
     UserListPage,
     UserComponent,
     LoginComponent,
+    PageNotFoundComponent,
     OrderPipe,
     FilterPipe,
     LoadingComponent
