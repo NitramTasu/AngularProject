@@ -17,6 +17,8 @@ import { UserListPage } from "./pages/UserList/UserList.page";
 import { UserComponent } from "./pages/User/User.page";
 import { LoginComponent } from "./pages/Login/Login.page";
 import { NgbModule } from "@ng-bootstrap/ng-bootstrap";
+import {FilterPipe} from './pipes/filter.pipe';
+import {OrderPipe} from './pipes/order.pipe';
 import { LoadingComponent } from "./components/Loading/Loading.component";
 import {NeedAuthGuard} from '../app/auth/auth-guard'
 
@@ -27,6 +29,8 @@ import {NeedAuthGuard} from '../app/auth/auth-guard'
     UserListPage,
     UserComponent,
     LoginComponent,
+    OrderPipe,
+    FilterPipe,
     LoadingComponent
   ],
   imports: [

@@ -1,7 +1,15 @@
 <div>
-  <a routerLink="user" routerLinkActive="active">Novo</a>
+  
+  <input 
+  type="text" 
+  name="filter"
+  style="padding:10px; margin:10px;     width: 200px;text-decoration: none;"
+  placeholder="Busque nome do usuário"
+  (keyup) ="setFilterBy($event)"/>
+  <a style="padding:10px; margin:10px;  background-color: #4CAF50; text-decoration: none;" routerLink="/user" routerLinkActive="active">Novo Cadastro</a>
   <ul>
-    <li *ngFor="let item of results">
+    
+    <li *ngFor='let item of results | filter: filterBy | order: orderBy'>
       Nome Completo: {{ item.name }}<br />| CPF: {{ item.cpf }}<br />| E-mail:
       {{ item.email }}<br />| Idade: {{ item.age }}<br />|Telefone:
       {{ item.phone }}<br />
@@ -13,9 +21,10 @@
       {{ item.housenumber }}<br />
       |
       {{ item.complement }}<br />
-      <a routerLink="user/{{ item.id }}" routerLinkActive="active">Ver Perfil</a
+      <a routerLink="/user/{{ item.id }}" routerLinkActive="active">Ver Perfil</a
       ><br />
       <button (click)="delete(item.id)">Delete</button>
+      <br /><br />
     </li>
   </ul>
 </div>

@@ -7,10 +7,12 @@ import { LoginComponent } from "./pages/Login/Login.page";
 import {NeedAuthGuard} from '../app/auth/auth-guard'
 
 const routes: Routes = [
+  { path: '', redirectTo: 'list', pathMatch: 'full' },
   { path: "list", component: UserListPage, canActivate: [NeedAuthGuard] },
   { path: "user/:id", component: UserComponent, canActivate: [NeedAuthGuard] },
-  { path: "user", component: UserComponent,canActivate: [NeedAuthGuard] },
+  { path: "user", component: UserComponent,canActivate: [NeedAuthGuard], pathMatch: 'full' },
   { path: "**", component: LoginComponent }
+  
 ];
 
 @NgModule({

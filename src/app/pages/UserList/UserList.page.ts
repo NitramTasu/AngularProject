@@ -8,6 +8,8 @@ import { UsersService } from "../../services/Users.service";
 })
 export class UserListPage {
   private results = [];
+  private filterBy: string = "";
+  private orderBy: number;
 
   constructor(private usersService: UsersService) {}
 
@@ -25,5 +27,12 @@ export class UserListPage {
       const userKey = data[0].payload.doc.id;
       this.usersService.deleteByKey(userKey);
     });
+  }
+  setFilterBy(event : any){
+    this.filterBy = event.target.value
+  }
+
+  onSelectChange(valor: number){
+      this.orderBy = valor;
   }
 }
