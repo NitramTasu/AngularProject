@@ -8,7 +8,7 @@ npm install
 ng serve
 
 
-O projeto está hospedado em: https://angular-6de12.web.app
+O projeto está hospedado em: https://angular-6de12.firebaseapp.com
 
 Mas está com o seguinte é exibido no console ao executar: TypeError: Ju(...).auth is not a function
 
