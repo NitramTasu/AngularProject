@@ -1,44 +1,41 @@
-import { Component } from "@angular/core";
+import { Component } from '@angular/core';
 
-import { UsersService } from "../../services/Users.service";
-import { ActivatedRoute, Router } from "@angular/router";
-import { FormGroup, FormControl, Validators } from "@angular/forms";
+import { UsersService } from '../../services/Users.service';
+import { ActivatedRoute, Router } from '@angular/router';
+import { FormGroup, FormControl, Validators } from '@angular/forms';
 
 @Component({
-  selector: "user-component",
-  templateUrl: "./User.page.html",
-  styleUrls: ["./User.page.css"]
+  selector: 'user-component',
+  templateUrl: './User.page.html',
+  styleUrls: ['./User.page.css']
 })
 export class UserComponent {
-  userId: string = "";
+  userId = '';
   data: object = {};
-  loading: boolean = false;
+  loading = false;
   userKey: object = {};
 
   userForm = new FormGroup({
-    name: new FormControl("", Validators.required),
-    email: new FormControl("", Validators.required),
-    age: new FormControl("", Validators.required),
-    cpf: new FormControl("", Validators.required),
-    zipcode: new FormControl("", Validators.required),
-    street: new FormControl("", Validators.required),
-    housenumber: new FormControl("", Validators.required),
-    complement: new FormControl("", Validators.required),
+    name: new FormControl('', Validators.required),
+    email: new FormControl('', Validators.required),
+    age: new FormControl('', Validators.required),
+    cpf: new FormControl('', Validators.required),
+    zipcode: new FormControl('', Validators.required),
+    street: new FormControl('', Validators.required),
+    housenumber: new FormControl('', Validators.required),
+    complement: new FormControl('', Validators.required),
   });
 
   constructor(
     private usersService: UsersService,
     private route: ActivatedRoute,
     private router: Router
-  ) {
-    console.log(this.route.snapshot.paramMap.get("id"));
-  }
+  ) {}
 
   ngOnInit() {
-    this.userId = this.route.snapshot.paramMap.get("id");
-    console.log('teste', this.userId)
+    this.userId = this.route.snapshot.paramMap.get('id');
 
-    if (this.userId) this.getUser(this.userId);
+    if (this.userId) { this.getUser(this.userId); }
   }
 
   private getUser(id: string) {
@@ -46,7 +43,7 @@ export class UserComponent {
       const result = data[0].payload.doc.data();
       this.userKey = data[0].payload.doc.id;
       Object.keys(result)
-        .filter(item => item != "id")
+        .filter(item => item != 'id')
         .forEach(item => {
           this.userForm.controls[item].setValue(result[item]);
         });
@@ -62,7 +59,7 @@ export class UserComponent {
   }
 
   onSubmit() {
-    this.userId = this.route.snapshot.paramMap.get("id");
+    this.userId = this.route.snapshot.paramMap.get('id');
     this.loading = true;
 
     if (this.userId) {
@@ -82,11 +79,10 @@ export class UserComponent {
       .create(this.userForm.value)
       .then(() => {
         this.loading = false;
-        this.router.navigate(["/"]);
+        this.router.navigate(['/']);
       })
       .catch(err => {
         this.loading = false;
-        console.log("Create erro:", err);
       });
   }
 }

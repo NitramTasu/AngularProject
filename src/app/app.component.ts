@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { AuthService } from "./services/Login.services"
+import { AuthService } from './services/Login.services';
 
 @Component({
   selector: 'app-root',
@@ -9,17 +9,16 @@ import { AuthService } from "./services/Login.services"
 export class AppComponent {
   title = 'angular-project';
 
-  constructor (private authService: AuthService){
+  constructor(private authService: AuthService) {
 
   }
 
   logout() {
-    this.authService.logout()
+    this.authService.logout();
   }
 
   public isLoggedIn(): boolean {
-    const user = JSON.parse(localStorage.getItem("user"));
-    console.log('user', user)
+    const user = JSON.parse(localStorage.getItem('user'));
     return user !== null;
   }
 }

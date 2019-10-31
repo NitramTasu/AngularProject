@@ -1,14 +1,14 @@
-import { Component } from "@angular/core";
-import { UsersService } from "../../services/Users.service";
+import { Component } from '@angular/core';
+import { UsersService } from '../../services/Users.service';
 
 @Component({
-  selector: "user-list",
-  templateUrl: "./UserList.page.html",
-  styleUrls: ["./UserList.page.css"]
+  selector: 'user-list',
+  templateUrl: './UserList.page.html',
+  styleUrls: ['./UserList.page.css']
 })
 export class UserListPage {
    results = [];
-   filterBy: string = "";
+   filterBy = '';
    orderBy: number;
 
   constructor(private usersService: UsersService) {}
@@ -16,23 +16,21 @@ export class UserListPage {
   ngOnInit() {
     this.usersService.getAllUsers().subscribe(result =>
       result.forEach(item => {
-        console.log(item.payload.doc.data());
         this.results.push(item.payload.doc.data());
       })
     );
   }
   delete(id: string) {
-    console.log("chamou id", id);
     this.usersService.getById(id).subscribe((data: any) => {
       const userKey = data[0].payload.doc.id;
       this.usersService.deleteByKey(userKey);
     });
   }
-  setFilterBy(event : any){
-    this.filterBy = event.target.value
+  setFilterBy(event: any) {
+    this.filterBy = event.target.value;
   }
 
-  onSelectChange(valor: number){
+  onSelectChange(valor: number) {
       this.orderBy = valor;
   }
 }
