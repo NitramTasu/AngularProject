@@ -1,18 +1,31 @@
 # AngularProject
 
-Para rodar o projeto:
+###### Para instalar as dependências do projeto:
+```npm install```
+
+###### Para iniciar o projeto:
+```ng serve```
 
 
-npm install
+###### O projeto está hospedado em: https://angular-6de12.firebaseapp.com
 
-ng serve
-
-
-O projeto está hospedado em: https://angular-6de12.firebaseapp.com
-
-Mas está com o seguinte é exibido no console ao executar: TypeError: Ju(...).auth is not a function
-
+```
 Login de teste:
 
 E-mail: teste@teste.com
 Senha: 123456
+```
+
+###### Lista de cadastrados
+
+Uma lista com os dados do usuário.
+Nessa tela é possível:
+- Deslogar
+- Filtrar os usuários da lista
+- Cadastrar novos usuários
+- Editar usuários já cadastrados
+
+
+
+
+
