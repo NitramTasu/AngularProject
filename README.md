@@ -8,10 +8,12 @@
 
 
 ###### O projeto está hospedado em: https://angular-6de12.firebaseapp.com
+Obs: Caso da página não carregue execute o seguinte comando:
+![https://fabricdigital.co.nz/](https://fabricdigital.co.nz/assets/hard-refresh-browser-chrome.jpg) 
+(Fonte:https://fabricdigital.co.nz/)
 
+## Login de teste:
 ```
-Login de teste:
-
 E-mail: teste@teste.com
 Senha: 123456
 ```
